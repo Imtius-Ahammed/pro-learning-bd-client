@@ -31,9 +31,12 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <LeftSideCategory></LeftSideCategory>
+            <li>
+              <Link to='/home'>Home</Link>
+            </li>
             
             <li>
-              <a>Courses</a>
+              <Link to='/courses'>Courses</Link>
             </li>
             <li tabIndex={0}>
               <a className="justify-between">
@@ -47,16 +50,16 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
+        <Link to='/home' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         
         <ul className="menu menu-horizontal p-0">
         <li>
-              <Link to='/'>Home</Link>
+              <Link to='/home'>Home</Link>
             </li>
           <li>
-            <a>Courses</a>
+            <Link to='/courses'>Courses</Link>
           </li>
           <li tabIndex={0}>
             <a>
