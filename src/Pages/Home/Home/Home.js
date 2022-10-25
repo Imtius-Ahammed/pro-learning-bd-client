@@ -1,13 +1,14 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
+  const allcourses = useLoaderData();
   return (
     <div>
-      <h1>This is home Page</h1>
+      <h1>All Courses Home: {allcourses.length}</h1>
       
     </div>
   );
 };
 
 export default Home;
-<h1>This is home Page</h1>

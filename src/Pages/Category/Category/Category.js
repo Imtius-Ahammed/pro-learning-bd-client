@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {  useLoaderData } from 'react-router-dom';
 
 const Category = () => {
+  const course =  useLoaderData();
+ 
   return (
     <div>
-      <h1>This is Category</h1>
+      <h2>This is Category: {course.length}</h2>
+       
     </div>
   );
 };
 
-export default Category;<h1>This is Category</h1>
+export default Category;
