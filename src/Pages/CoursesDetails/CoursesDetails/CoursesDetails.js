@@ -10,4 +10,3 @@ const CoursesDetails = () => {
 };
 
 export default CoursesDetails;
-<h4>THis is cOurse Details</h4>
