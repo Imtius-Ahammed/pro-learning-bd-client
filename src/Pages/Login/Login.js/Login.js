@@ -1,10 +1,13 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import { Form } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Header from "../../Shared/Header/Header";
 
 const Login = () => {
-  const{providerLogin} = useContext(AuthContext);
+
+  
+  const{signIn,providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleLogin =()=>{
     providerLogin(googleProvider)
@@ -15,10 +18,28 @@ const Login = () => {
     .catch(error=>console.error(error))
 
   }
+
+  const handleSignIn=event=>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    signIn(email,password)
+    .then(result=>{
+      const user =result.user;
+      
+      console.log(user);
+      form.reset();
+    })
+    .catch(error=>console.error(error))
+  }
+    
   return (
     <div>
       <Header></Header>
 
+      <Form onSubmit={handleSignIn}>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -35,10 +56,10 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input
-                  type="text"
+                <input name="email"
+                  type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered" required
                 />
               </div>
               <div className="form-control">
@@ -46,9 +67,10 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                name="password"
+                  type="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered" required
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -67,6 +89,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </Form>
     </div>
   );
 };

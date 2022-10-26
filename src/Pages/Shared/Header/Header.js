@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 import LeftSideCategory from "../LeftSideCategory/LeftSideCategory";
 
 const Header = () => {
-  const{user} = useContext(AuthContext);
+  const{user,providerLogOut} = useContext(AuthContext);
+
+  const handlelogOut =()=>{
+    providerLogOut()
+    .then(()=>{})
+    .catch(error=>{console.error(error)})
+  }
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -50,12 +57,7 @@ const Header = () => {
             <li>
               <a>BLOG</a>
             </li>
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/register'>Register</Link>
-            </li>
+           
           </ul>
         </div>
         <Link to='/' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
@@ -79,18 +81,28 @@ const Header = () => {
           <li>
             <a>Blog</a>
           </li>
-          <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/register'>Register</Link>
-            </li>
+         
         
         </ul>
         
       </div>
       <div className="navbar-end">
-        <a className="btn">{user?.displayName}</a>
+        { user?.uid?
+          <>
+         <span>{user?.displayName}</span>
+         <button onClick={handlelogOut} className="btn">Log Out</button>
+
+          </>
+          :
+          <>
+          <Link to='/login'>Login</Link>
+          <Link to='/register'>Register</Link>
+          </>
+        }
+        {
+          user?.photoURL ?
+          <img style={{height:'30px'}} src={user?.photoURL} alt="" />:<FaUser></FaUser>
+        }
       </div>
      
     </div>
