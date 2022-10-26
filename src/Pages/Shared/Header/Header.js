@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 import LeftSideCategory from "../LeftSideCategory/LeftSideCategory";
 
 const Header = () => {
+  const{user} = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -32,7 +34,7 @@ const Header = () => {
           >
             <LeftSideCategory></LeftSideCategory>
             <li>
-              <Link to='/home'>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             
             <li>
@@ -48,15 +50,21 @@ const Header = () => {
             <li>
               <a>BLOG</a>
             </li>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li>
+              <Link to='/register'>Register</Link>
+            </li>
           </ul>
         </div>
-        <Link to='/home' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         
         <ul className="menu menu-horizontal p-0">
         <li>
-              <Link to='/home'>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
           <li>
             <Link to='/courses'>Courses</Link>
@@ -71,12 +79,18 @@ const Header = () => {
           <li>
             <a>Blog</a>
           </li>
+          <li>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li>
+              <Link to='/register'>Register</Link>
+            </li>
         
         </ul>
         
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <a className="btn">{user?.displayName}</a>
       </div>
      
     </div>
