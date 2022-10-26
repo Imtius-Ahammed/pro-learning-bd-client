@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, useLocation, useNavigate } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Header from "../../Shared/Header/Header";
 
@@ -9,7 +9,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,25 +27,23 @@ const Register = () => {
         setError(error.message);
         form.reset();
 
-        
-        handleUpdateProfile(name,photoURL);
-        navigate(from, {replace: true});
+        handleUpdateProfile(name, photoURL);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
-        setError(error.message)
-      
+        setError(error.message);
       });
   };
-  const handleUpdateProfile = (name,photoURL)=>{
-    const profile =  {
+  const handleUpdateProfile = (name, photoURL) => {
+    const profile = {
       displayName: name,
-      photoURL: photoURL
-    }
+      photoURL: photoURL,
+    };
     updateUserProfile(profile)
-    .then(()=>{})
-    .catch(error =>console.error(error));
-  }
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <Header></Header>
@@ -53,14 +51,9 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Login now!</h1>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
-              </p>
+              <h1 className="text-5xl mb-5  font-bold">Register now!</h1>
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-screen max-w-2xl shadow-2xl shadow-info bg-base-100">
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -108,9 +101,9 @@ const Register = () => {
                     required
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
+                    <Link href="#" className=" link link-hover text-sm">
+                      Already have an Account?
+                    </Link>
                   </label>
                 </div>
                 <div className="form-control mt-6">
