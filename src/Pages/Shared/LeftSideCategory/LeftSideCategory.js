@@ -10,11 +10,11 @@ const LeftSideCategory = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div>
+    <div> 
         <h1>All Course Categories: {categories.length}</h1>
       <div>
         {categories.map((category) => (
-          <p key={category.id} category={category}>
+          <p className=' bg-gray-700 hover:shadow-lg hover:shadow-info  p-3 m-3 text-sm lg:text-3xl text-white hover:text-black rounded-xl hover:bg-violet-700' key={category.id} category={category}>
             <Link to={`/category/${category.id}`}>{category.name}</Link>
           </p>
         ))}

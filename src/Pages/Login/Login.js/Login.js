@@ -1,18 +1,23 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+
 import Header from "../../Shared/Header/Header";
+
+
 
 const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/';
 
-  const { signIn, providerLogin } = useContext(AuthContext);
+  const { signIn, providerLogin,gitSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+ 
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
       .then((result) => {
@@ -43,6 +48,17 @@ const Login = () => {
       });
   };
 
+ const handleGithubSignIn =()=>{
+  gitSignIn(githubProvider)
+  .then(result =>{
+    const user = result.user;
+    console.log(user);
+  })
+  .catch(error=>{
+    console.error('error:',error)
+  })
+
+ }
   return (
     <div>
       <Header></Header>
@@ -90,17 +106,23 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
-                  <div>
+                  <button className="btn  btn-primary">Login</button>
+                  <div className="flex items-center">
+                   <div> 
                     <button
                       onClick={handleGoogleLogin}
                       className="btn btn-primary"
                     >
                       Login with Google
                     </button>
-                    <button className="btn btn-primary">
+                    </div>
+                   
+                    <div>
+                    <button onClick={handleGithubSignIn} className="btn btn-primary">
                       Login with GitHub
                     </button>
+
+                    </div>
                   </div>
                   <div className="toast">
                     <div className="alert alert-info bg-red-500">

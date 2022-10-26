@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import Footer from '../../Footer/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
     </div>
   </div>
 </section>
+<Footer></Footer>
 
 
    </div>
