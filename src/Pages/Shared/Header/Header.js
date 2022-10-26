@@ -6,13 +6,15 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import LeftSideCategory from "../LeftSideCategory/LeftSideCategory";
 
 const Header = () => {
-  const{user,providerLogOut} = useContext(AuthContext);
+  const { user, providerLogOut } = useContext(AuthContext);
 
-  const handlelogOut =()=>{
+  const handlelogOut = () => {
     providerLogOut()
-    .then(()=>{})
-    .catch(error=>{console.error(error)})
-  }
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -33,78 +35,75 @@ const Header = () => {
               />
             </svg>
           </label>
-        
+
           <ul
-          
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <LeftSideCategory></LeftSideCategory>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
-            
+
             <li>
-              <Link to='/courses'>Courses</Link>
+              <Link to="/courses">Courses</Link>
             </li>
             <li tabIndex={0}>
-              <a className="justify-between">
+              <Link to="/faq" className="justify-between">
                 FAQ
-              
-              </a>
-          
+              </Link>
             </li>
             <li>
-              <a>BLOG</a>
+              <Link to="/blog">BLOG</Link>
             </li>
-           
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">ProLearningBD</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          ProLearningBD
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        
         <ul className="menu menu-horizontal p-0">
-        <li>
-              <Link to='/'>Home</Link>
-            </li>
           <li>
-            <Link to='/courses'>Courses</Link>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/courses">Courses</Link>
           </li>
           <li tabIndex={0}>
-            <a>
-              FAQ
-             
-            </a>
-          
+            <Link to="/faq">FAQ</Link>
           </li>
           <li>
-            <a>Blog</a>
+            <Link to="/blog">Blog</Link>
           </li>
-         
-        
         </ul>
-        
+      </div>
+      <div className="form-control">
+        <label className="label cursor-pointer">
+
+          <input type="checkbox" className="toggle"  />
+        </label>
       </div>
       <div className="navbar-end">
-        { user?.uid?
+        {user?.uid ? (
           <>
-         <span>{user?.displayName}</span>
-         <button onClick={handlelogOut} className="btn">Log Out</button>
-
+            <span>{user?.displayName}</span>
+            <button onClick={handlelogOut} className="btn">
+              Log Out
+            </button>
           </>
-          :
+        ) : (
           <>
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Register</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </>
-        }
-        {
-          user?.photoURL ?
-          <img style={{height:'30px'}} src={user?.photoURL} alt="" />:<FaUser></FaUser>
-        }
+        )}
+        {user?.photoURL ? (
+          <img style={{ height: "30px" }} src={user?.photoURL} alt="" />
+        ) : (
+          <FaUser></FaUser>
+        )}
       </div>
-     
     </div>
   );
 };
