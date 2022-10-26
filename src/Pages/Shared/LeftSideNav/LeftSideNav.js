@@ -44,15 +44,7 @@ const LeftSideNav = () => {
             <FaRegistered></FaRegistered> Register
           </button></Link>
          
-          <div className="flex items-center gap-8">
-            <div>
-              <button className="btn  btn-primary gap-2"><FaGoogle></FaGoogle> Login with Google</button>
-            </div>
-
-            <div>
-              <button className="btn gap-2 btn-secondary"><FaGithub></FaGithub> Login with GitHub</button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

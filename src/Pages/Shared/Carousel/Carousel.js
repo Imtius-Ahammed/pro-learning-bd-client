@@ -1,7 +1,7 @@
 import React from "react";
-import img3 from "../../.././img3.webp";
-import img2 from "../../.././img2.jpg";
-import img1 from "../../.././img1.webp";
+import img3 from "../../../Assets/Images/img3.webp";
+import img2 from "../../../Assets/Images/img2.jpg";
+import img1 from "../../../Assets/Images//img3.webp";
 
 const Carousel = () => {
   return (

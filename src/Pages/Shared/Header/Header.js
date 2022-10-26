@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 import LeftSideCategory from "../LeftSideCategory/LeftSideCategory";
+import logo from '../../../Assets/logo/logo.png'
 
 const Header = () => {
   const { user, providerLogOut } = useContext(AuthContext);
@@ -63,7 +64,7 @@ const Header = () => {
           to="/"
           className="btn btn-ghost normal-case lg:text-xl shadow-md shadow-warning"
         >
-          ProLearningBD
+         <img className="rounded-full" style={{height:'40px'}} src={logo} alt="" />  ProLearningBD
         </Link>
       </div>
       <div className="form-control">
