@@ -27,7 +27,7 @@ const CourseSummaryCard = ({ courses }) => {
           <img className="w-full rounded-lg" src={image_url} alt="img" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-2xl text-white font-bold">
+          <h2 className="card-title text-2xl font-bold">
             {title}
             <div className="badge badge-secondary">
               <FaStarHalfAlt className="text-black mr-1"></FaStarHalfAlt>{" "}
@@ -42,8 +42,8 @@ const CourseSummaryCard = ({ courses }) => {
             )}
           </div>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline p-5 shadow-md hover:bg-violet-700 hover:text-white text-white shadow-success">
-              <Link to={`/coursesdetails/${_id}`}>Get Premium Access</Link>
+            <div className="badge  p-5 shadow-md hover:bg-sky-400 hover:text-black shadow-success">
+              <Link to={`/coursesdetails/${_id}`}>Enroll Page</Link>
             </div>
           </div>
         </div>

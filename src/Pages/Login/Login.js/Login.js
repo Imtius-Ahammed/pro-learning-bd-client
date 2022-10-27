@@ -1,4 +1,4 @@
-import { getAuth, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import {  GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
@@ -65,12 +65,12 @@ const Login = () => {
 
       <Form onSubmit={handleSignIn}>
         <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex lg:flex-col">
+          <div className="hero-content  flex flex-col">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold mb-5">Login now!</h1>
             </div>
 
-            <div className="card flex-shrink-0 w-screen max-w-2xl shadow-2xl shadow-info bg-base-100">
+            <div className="card flex-shrink-0 w-full lg:w-screen max-w-2xl shadow-2xl shadow-info bg-base-100">
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -105,7 +105,7 @@ const Login = () => {
                           <Link to="/register" className=" link link-hover text-sm">
                           <input
                             type="checkbox"
-                            className="toggle toggle-secondary hover:bg-white"
+                            className="toggle toggle-secondary hover:bg-black"
                            
                           />
                           </Link>
@@ -115,28 +115,37 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn  btn-primary gap-2">
+                  <button className="btn bg-sky-400 border-0 gap-2">
                     <FaUserAlt></FaUserAlt> Login
                   </button>
-                  <div className="flex justify-around  mt-6">
-                    <div>
-                      <button
-                        onClick={handleGoogleLogin}
-                        className="btn btn-primary gap-2 hover:bg-info hover:text-black"
-                      >
-                        <FaGoogle></FaGoogle> Login with Google
-                      </button>
+                  <div className="flex justify-evenly  mt-6">
+                    <div className="flex flex-col items-center">
+                      <div>
+                      <FaGoogle onClick={handleGoogleLogin} className='cursor-pointer text-3xl '></FaGoogle>
+
+                      </div>
+                      <div>
+                      Google
+                      </div>
+                     
                     </div>
 
-                    <div>
-                      <button
-                        onClick={handleGithubSignIn}
-                        className="btn btn-primary gap-2 hover:bg-info hover:text-black"
-                      >
-                        <FaGithub></FaGithub> Login with GitHub
-                      </button>
+
+                    <div className="flex flex-col items-center">
+                      <div>
+                      <FaGithub onClick={handleGithubSignIn} className='cursor-pointer text-3xl '></FaGithub>
+
+                      </div>
+                      <div>
+                      GitHub
+                      </div> 
                     </div>
                   </div>
+
+
+                  <div><h2 className="text-center font-bold mt-5">Thanks for Being With us!!</h2></div>
+
+
                   <div className="toast">
                     <div className="alert alert-info bg-red-500">
                       <div>

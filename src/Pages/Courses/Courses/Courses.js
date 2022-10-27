@@ -7,7 +7,7 @@ const Courses = () => {
   return (
   
        <div className='container mx-auto items-center w-11/12' >
-      <h1 className='bg-violet-700 text-sm text-white lg:text-3xl  rounded-lg p-3'>All Courses Home: {allCourses.length}</h1>
+      <h1 className='bg-sky-400 text-sm lg:text-3xl  rounded-lg p-3'>All Courses Home: {allCourses.length}</h1>
       {
         allCourses.map(courses=><CourseSummaryCard key={courses._id} courses={courses}></CourseSummaryCard>)
       }

@@ -18,7 +18,7 @@ const CoursesDetails = () => {
       </Pdf>
       </div>
 
-      <h1 className="bg-violet-700 text-sm p-5 text-white lg:text-3xl rounded-lg"> Course Title: {course.title}</h1>
+      <h1 className="bg-sky-400 text-sm p-3 m-3 lg:text-3xl rounded-lg"> Course Title: {course.title}</h1>
       
       <div ref={ref} className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
@@ -36,8 +36,9 @@ const CoursesDetails = () => {
            <div>
            <Link to={`/category/${category_id}`}>
               {" "}
-              <button className="btn btn-primary">Related Courses</button>
+              <button className="btn btn-success mx-4">Related Courses</button>
             </Link>
+            <Link to='/checkout'><button className="btn btn-primary">Enroll</button></Link>
            </div>
            
            
@@ -49,7 +50,7 @@ const CoursesDetails = () => {
         </div>
       </div>
 
-      <div className="stats bg-violet-800 text-white stats-horizontal shadow">
+      <div className="stats bg-violet-800 text-white stats-horizontal shadow w-full">
         <div className="stat">
           <div className="stat-title">Downloads</div>
           <div className="stat-value">31K</div>

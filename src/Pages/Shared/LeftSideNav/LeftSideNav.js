@@ -37,10 +37,10 @@ const LeftSideNav = () => {
             <FaLinkedin></FaLinkedin> Linkedin
           </button>
 
-          <Link to='/login'><button className="btn gap-2  mb-2 w-80 bg-sky-400 text-violet-800 font-bold ">
+          <Link to='/login'><button className="btn gap-2  mb-2 w-80 bg-sky-400 text-black hover:text-white font-bold ">
             <FaUserAlt></FaUserAlt> Login
           </button></Link>
-          <Link to='/Register'><button className="btn bg-sky-400 text-violet-800 font-bold gap-2 mb-2 w-80 ">
+          <Link to='/Register'><button className="btn bg-sky-400 text-black hover:text-white font-bold gap-2 mb-2 w-80 ">
             <FaRegistered></FaRegistered> Register
           </button></Link>
          

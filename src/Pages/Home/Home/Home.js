@@ -21,7 +21,7 @@ const Home = () => {
             </div>
             <div className="flex flex-col sm:flex-row mt-10">
               <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+                <div className="w-20 h-20 rounded-full inline-flex items-center justify-center  ">
                   <img className="rounded-full" src={myimg} alt="" />
                 </div>
                 <div className="flex flex-col items-center text-center justify-center">
@@ -29,14 +29,14 @@ const Home = () => {
                    Md Imtius Ahammed
                   </h2>
                   <div className="w-12 h-1 bg-info rounded mt-2 mb-4"></div>
-                  <p className="text-base text-white">
+                  <p className="text-base">
                   Dedicated and efficient full stack developer with 6+ years experience in application layers, presentation layers, and databases. Certified in both F/E and B/E technologies. Spearheaded successful transition from LAMP stack to MEAN which cut latency by 40% and increased effectiveness of database administrators by 20%. Seeking to further improve HTML5 and CSS3 skills as the future full stack developer at Atmospheric Solutions.
                   </p>
                 </div>
               </div>
               <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                 <h3 className="text-2xl text-info">About Web Development</h3>
-                <p className="leading-relaxed text-lg mb-4 text-white">
+                <p className="leading-relaxed text-lg mb-4 ">
                   
                   Web development is the building and maintenance of websites;
                   it’s the work that happens behind the scenes to make a website
