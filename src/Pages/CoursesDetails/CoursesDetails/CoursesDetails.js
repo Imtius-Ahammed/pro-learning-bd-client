@@ -1,15 +1,26 @@
 import React from "react";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef('');
 
 const CoursesDetails = () => {
   const course = useLoaderData();
   const { title, image_url, details, category_id,rating } = course;
   return (
+    
     <div className="container mx-auto items-center w-11/12 rounded-2xl shadow-xl shadow-success">
+      
+      <div className="flex justify-end m-2 ">
+      <Pdf targetRef={ref} filename={title}>
+        {({ toPdf }) => <button className="btn btn-secondary hover:bg-info hover:text-black hover:shadow-lg hover:shadow-success" onClick={toPdf}>Download Pdf</button>}
+      </Pdf>
+      </div>
+
       <h1 className="bg-violet-700 text-sm p-5 text-white lg:text-3xl rounded-lg"> Course Title: {course.title}</h1>
       
-      <div className="card card-compact w-full bg-base-100 shadow-xl">
+      <div ref={ref} className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
           <img src={image_url} />
         </figure>

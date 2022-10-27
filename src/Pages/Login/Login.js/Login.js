@@ -2,6 +2,7 @@ import { getAuth, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { FaGoogle, FaGithub, FaUserAlt } from "react-icons/fa";
 
 import Header from "../../Shared/Header/Header";
 
@@ -21,6 +22,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
@@ -51,6 +53,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error("error:", error);
@@ -93,29 +96,44 @@ const Login = () => {
                     required
                   />
                   <label className="label">
-                    <Link to="/register" className=" link link-hover text-sm">
-                      Don't have any Account?
-                    </Link>
+                  Don't have any Account?
+                   
+                      
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text m-2">Register</span>
+                          <Link to="/register" className=" link link-hover text-sm">
+                          <input
+                            type="checkbox"
+                            className="toggle toggle-secondary hover:bg-white"
+                           
+                          />
+                          </Link>
+                        </label>
+                      </div>
+                    
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn  btn-primary">Login</button>
+                  <button className="btn  btn-primary gap-2">
+                    <FaUserAlt></FaUserAlt> Login
+                  </button>
                   <div className="flex justify-around  mt-6">
                     <div>
                       <button
                         onClick={handleGoogleLogin}
-                        className="btn btn-primary hover:bg-info hover:text-black"
+                        className="btn btn-primary gap-2 hover:bg-info hover:text-black"
                       >
-                        Login with Google
+                        <FaGoogle></FaGoogle> Login with Google
                       </button>
                     </div>
 
                     <div>
                       <button
                         onClick={handleGithubSignIn}
-                        className="btn btn-primary hover:bg-info hover:text-black"
+                        className="btn btn-primary gap-2 hover:bg-info hover:text-black"
                       >
-                        Login with GitHub
+                        <FaGithub></FaGithub> Login with GitHub
                       </button>
                     </div>
                   </div>

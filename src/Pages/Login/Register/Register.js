@@ -49,9 +49,9 @@ const Register = () => {
       <Header></Header>
       <Form onSubmit={handleSubmit}>
         <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="text-center lg:text-left">
-              <h1 className="text-5xl mb-5  font-bold">Register now!</h1>
+          <div className="hero-content flex lg:flex-col">
+          <div className="text-center lg:text-left">
+              <h1 className="text-5xl font-bold mb-5">Register now!</h1>
             </div>
             <div className="card flex-shrink-0 w-screen max-w-2xl shadow-2xl shadow-info bg-base-100">
               <div className="card-body">
