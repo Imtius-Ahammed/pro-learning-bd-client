@@ -1,5 +1,5 @@
 Website Name: ProLearningBD
-Live Site: https://web-learning-7d5e0.web.app/categories
+Live Site: https://pro-learning-bd.web.app
 
 1. Installed React-Tailwind
 2. Installed React-Router
