@@ -2,7 +2,7 @@ import { createBrowserRouter, Link } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog/Blog";
 import Category from "../../Pages/Category/Category/Category";
-import CheckOut from "../../Pages/CheckOut/CheckOut/CheckOut";
+
 import Courses from "../../Pages/Courses/Courses/Courses";
 
 import CoursesDetails from "../../Pages/CoursesDetails/CoursesDetails/CoursesDetails";
@@ -67,7 +67,7 @@ export const routes = createBrowserRouter([
         path: "/coursesdetails/:id",
         element: (
           
-            <CoursesDetails></CoursesDetails>
+            <PrivateRoutes><CoursesDetails></CoursesDetails></PrivateRoutes>
          
         ),
         loader: ({ params }) =>
@@ -75,10 +75,7 @@ export const routes = createBrowserRouter([
             `https://pro-learning-bd-server.vercel.app/courses/${params.id}`
           ),
       },
-      {
-        path:'/checkout',
-        element:<PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>
-      }
+    
     ],
   },
 ]);

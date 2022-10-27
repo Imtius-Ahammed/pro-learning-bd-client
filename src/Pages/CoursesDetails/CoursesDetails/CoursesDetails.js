@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import Pdf from "react-to-pdf";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const ref = React.createRef('');
 
 const CoursesDetails = () => {
   const course = useLoaderData();
+  const { user } = useContext(AuthContext);
   const { title, image_url, details, category_id,rating } = course;
   return (
     
@@ -18,7 +20,11 @@ const CoursesDetails = () => {
       </Pdf>
       </div>
 
-      <h1 className="bg-sky-400 text-sm p-3 m-3 lg:text-3xl rounded-lg"> Course Title: {course.title}</h1>
+      <h1 className="bg-sky-500 text-sm p-5 text-black lg:text-2xl rounded-lg"><img className="rounded-full" style={{height:'80px'}} src={user?.photoURL} alt="" /> User Name: {user?.displayName|| 'No user Name'} <br /> <span>Email:  {user?.email}</span><br /> <span>Uid: {user?.uid}</span></h1>
+
+ 
+
+      <h1 className="bg-violet-700 text-sm p-5 text-white lg:text-xl rounded-lg"> Course Title: {course.title}</h1>
       
       <div ref={ref} className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
@@ -36,21 +42,17 @@ const CoursesDetails = () => {
            <div>
            <Link to={`/category/${category_id}`}>
               {" "}
-              <button className="btn btn-success mx-4">Related Courses</button>
+              <button className="btn btn-primary">Related Courses</button>
             </Link>
-            <Link to='/checkout'><button className="btn btn-primary">Enroll</button></Link>
            </div>
            
-           
-            
-              
-            
+        
             </div>
           </div>
         </div>
       </div>
 
-      <div className="stats bg-violet-800 text-white stats-horizontal shadow w-full">
+      <div className="stats bg-violet-800 text-white stats-horizontal shadow">
         <div className="stat">
           <div className="stat-title">Downloads</div>
           <div className="stat-value">31K</div>
