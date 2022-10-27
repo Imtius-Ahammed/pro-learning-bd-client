@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <div>
       <Header></Header>
-      <h1>This is Blog Page</h1>
+     
       <div className="container mx-auto">
         <div
           tabIndex={0}
