@@ -22,6 +22,9 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        if(user){
+          return alert('Successfully Login')
+         }
          navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -36,10 +39,15 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        if(user){
+         return alert('Successfully Login')
+        }
 
         console.log(user);
         form.reset();
         setError("");
+
+      
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -52,6 +60,9 @@ const Login = () => {
     gitSignIn(githubProvider)
       .then((result) => {
         const user = result.user;
+        if(user){
+         return alert('Successfully Login')
+        }
         console.log(user);
         navigate(from, { replace: true });
       })
